@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">CJ</span><span>Portfolio<span class="brand-sub">ADMIN STUDIO</span></span></a>
+    <a class="text-link" href="index.html" target="_blank" rel="noreferrer">View live portfolio ↗</a>
+  </header>
+
+  <main class="admin-layout">
+    <section class="admin-heading">
+      <p class="eyebrow">CONTENT MANAGEMENT</p>
+      <h1>Manage your portfolio.</h1>
+      <p class="muted">Edit the content below, then save it in this browser. Your public portfolio reads the saved content from this same browser.</p>
+      <div class="notice"><strong>Important:</strong> This is a front-end demo. Changes are stored in this browser using local storage, not on a server. Other visitors/devices won't see your edits until you connect a backend or update the site files.</div>
+    </section>
+
+    <form id="portfolioForm" class="editor-grid">
+      <section class="panel">
+        <div class="panel-heading"><span class="step">01</span><div><h2>Profile</h2><p>Make a clear first impression.</p></div></div>
+        <label>Full name<input name="name" required maxlength="80"></label>
+        <label>Professional title<input name="role" maxlength="120"></label>
+        <label>Short introduction<textarea name="intro" rows="4" maxlength="500"></textarea></label>
+        <label>About me<textarea name="about" rows="5" maxlength="1000"></textarea></label>
+        <div class="two-col">
+          <label>Location<input name="location" maxlength="100"></label>
+          <label>Email<input name="email" type="email" maxlength="160"></label>
+        </div>
+        <div class="two-col">
+          <label>GitHub URL<input name="github" type="url" placeholder="https://github.com/username"></label>
+          <label>LinkedIn URL<input name="linkedin" type="url" placeholder="https://linkedin.com/in/username"></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading"><span class="step">02</span><div><h2>Skills</h2><p>Use commas to separate skills.</p></div></div>
+        <label>Programming & development<input name="skillsDev" placeholder="HTML, CSS, JavaScript, C"></label>
+        <label>Tools & platforms<input name="skillsTools" placeholder="Git, GitHub, VS Code, Unity"></label>
+        <label>Areas of interest<input name="skillsInterest" placeholder="IoT, AI, Networking, Game Development"></label>
+      </section>
+
+      <section class="panel panel-wide">
+        <div class="panel-heading"><span class="step">03</span><div><h2>Projects</h2><p>Feature your strongest work. Separate each project with the controls below.</p></div></div>
+        <div id="projectsEditor" class="project-editor-list"></div>
+        <button type="button" class="button button-secondary" id="addProject">＋ Add project</button>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading"><span class="step">04</span><div><h2>Education</h2><p>Your current or completed studies.</p></div></div>
+        <label>Degree / program<input name="education" maxlength="180"></label>
+        <label>School<input name="school" maxlength="180"></label>
+        <label>Dates / status<input name="educationDates" maxlength="100" placeholder="2023–2027 · Expected graduation"></label>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading"><span class="step">05</span><div><h2>Resume & extras</h2><p>Optional supporting details.</p></div></div>
+        <label>Résumé URL<input name="resume" type="url" placeholder="https://..."></label>
+        <label>Certificates / training<textarea name="certificates" rows="4" placeholder="One item per line"></textarea></label>
+        <label>Footer note<input name="footer" maxlength="180"></label>
+      </section>
+
+      <div class="savebar">
+        <span id="saveStatus" class="muted" role="status">Unsaved changes</span>
+        <button type="button" class="button button-secondary" id="resetBtn">Reset sample content</button>
+        <button type="submit" class="button button-primary">Save portfolio</button>
+      </div>
+    </form>
+  </main>
+  <template id="projectTemplate">
+    <article class="project-editor">
+      <div class="project-editor-head"><strong class="project-number">Project</strong><button type="button" class="remove-project" aria-label="Remove project">Remove</button></div>
+      <label>Project name<input data-field="title" required maxlength="100"></label>
+      <label>Short description<textarea data-field="description" rows="3" maxlength="500"></textarea></label>
+      <label>Technologies<input data-field="tech" placeholder="HTML, CSS, JavaScript"></label>
+      <div class="two-col">
+        <label>Project status<input data-field="status" placeholder="In progress / Completed"></label>
+        <label>Project URL<input data-field="url" type="url" placeholder="https://..."></label>
+      </div>
+    </article>
+  </template>
+  <script>
+    const KEY = "cj-portfolio-content-v1";
+    const defaults = {
+      name: "Your Name",
+      role: "IT Student · Aspiring Developer",
+      intro: "I build practical digital experiences and enjoy turning ideas into useful, well-organized solutions.",
+      about: "I am an Information Technology student interested in software development, IoT, and interactive applications. I enjoy learning new tools, solving technical problems, and collaborating on projects that connect technology with real needs.",
+      location: "Cebu, Philippines",
+      email: "hello@example.com",
+      github: "https://github.com/",
+      linkedin: "https://linkedin.com/",
+      skillsDev: "HTML, CSS, JavaScript, C",
+      skillsTools: "Git, GitHub, Visual Studio Code, Unity",
+      skillsInterest: "IoT, AI and Computer Vision, Networking, Game Development",
+      education: "Bachelor of Science in Information Technology",
+      school: "Your College / University",
+      educationDates: "2023–2027 · Expected graduation",
+      resume: "",
+      certificates: "",
+      footer: "Built with curiosity and a commitment to continuous learning.",
+      projects: [
+        { title: "HydroPenDroid", description: "An AI-driven IoT capstone concept exploring targeted, water-efficient automated cleaning. Add your own verified implementation details, prototype images, and testing results.", tech: "AI, IoT, Computer Vision", status: "Capstone project", url: "" },
+        { title: "Dakop-Dakop", description: "A 3D tag-game project focused on character movement, camera controls, animations, and AI-controlled characters.", tech: "Unity, C#", status: "Game development", url: "" },
+        { title: "Offline Survey Application", description: "A mobile-friendly survey application concept for collecting and organizing responses when connectivity is limited.", tech: "HTML, CSS, JavaScript", status: "Web application", url: "" }
+      ]
+    };
+    const form = document.getElementById("portfolioForm");
+    const projectList = document.getElementById("projectsEditor");
+    const template = document.getElementById("projectTemplate");
+    const status = document.getElementById("saveStatus");
+    let current = loadData();
+
+    function loadData() {
+      try { return { ...defaults, ...(JSON.parse(localStorage.getItem(KEY) || "{}")) }; }
+      catch { return structuredClone(defaults); }
+    }
+    function addProject(project = {}) {
+      const node = template.content.firstElementChild.cloneNode(true);
+      node.querySelectorAll("[data-field]").forEach(input => input.value = project[input.dataset.field] || "");
+      node.querySelector(".remove-project").addEventListener("click", () => {
+        node.remove(); renumberProjects(); status.textContent = "Unsaved changes";
+      });
+      projectList.appendChild(node);
+      renumberProjects();
+    }
+    function renumberProjects() {
+      [...projectList.children].forEach((el, i) => el.querySelector(".project-number").textContent = `Project ${String(i+1).padStart(2,"0")}`);
+    }
+    function populate(data) {
+      for (const [key, value] of Object.entries(data)) {
+        if (key === "projects") continue;
+        const field = form.elements.namedItem(key);
+        if (field) field.value = value ?? "";
+      }
+      projectList.innerHTML = "";
+      (data.projects || []).forEach(addProject);
+    }
+    function collect() {
+      const data = {};
+      ["name","role","intro","about","location","email","github","linkedin","skillsDev","skillsTools","skillsInterest","education","school","educationDates","resume","certificates","footer"].forEach(k => data[k] = form.elements.namedItem(k).value.trim());
+      data.projects = [...projectList.children].map(el => {
+        const p = {};
+        el.querySelectorAll("[data-field]").forEach(input => p[input.dataset.field] = input.value.trim());
+        return p;
+      }).filter(p => p.title);
+      return data;
+    }
+    form.addEventListener("input", () => status.textContent = "Unsaved changes");
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      current = collect();
+      localStorage.setItem(KEY, JSON.stringify(current));
+      status.textContent = "Saved in this browser ✓";
+    });
+    document.getElementById("addProject").addEventListener("click", () => addProject({title:"New project"}));
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if (!confirm("Reset all fields to the sample content? This replaces the saved content in this browser.")) return;
+      current = structuredClone(defaults);
+      localStorage.setItem(KEY, JSON.stringify(current));
+      populate(current);
+      status.textContent = "Sample content restored";
+    });
+    populate(current);
+  </script>
+</body>
+</html>

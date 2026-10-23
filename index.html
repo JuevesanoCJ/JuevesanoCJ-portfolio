@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A personal portfolio showcasing projects, skills, and experience.">
+  <title>Portfolio | Your Name</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">CJ</span><span id="brandName">Your Name<span class="brand-sub">PORTFOLIO</span></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a class="nav-cta" href="#contact">Contact ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> AVAILABLE FOR OPPORTUNITIES</p>
+        <h1 id="heroTitle">Building useful things with <span>technology.</span></h1>
+        <p class="hero-intro" id="heroIntro"></p>
+        <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <span>↘</span></a><a class="button button-secondary" href="#contact">Get in touch</a></div>
+        <div class="hero-meta"><span id="heroLocation">Cebu, Philippines</span><span class="meta-separator">·</span><span id="heroRole">IT Student · Aspiring Developer</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative abstract portfolio graphic">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-card art-card-main"><span class="code-mark">{"</>"}</span><div class="art-lines"><i></i><i></i><i></i></div><span class="art-label">LEARN · BUILD · IMPROVE</span></div>
+        <div class="art-float float-top"><span class="float-icon">✳</span><span>Curious by nature</span></div>
+        <div class="art-float float-bottom"><span class="float-icon">↗</span><span>Always improving</span></div>
+        <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✳</div>
+      </div>
+    </section>
+
+    <section class="intro-strip">
+      <div class="container strip-inner"><span class="strip-label">A LITTLE ABOUT MY WORK</span><p id="aboutPreview">Thoughtful development, practical problem-solving, and a willingness to keep learning.</p><a href="#about" class="inline-link">More about me ↗</a></div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-heading"><p class="eyebrow">01 / ABOUT</p><h2>A little about me<span class="accent-dot">.</span></h2></div>
+      <div class="about-layout"><p class="about-lead" id="aboutLead"></p><div class="about-detail"><p id="aboutBody"></p><div class="about-facts"><div><span class="fact-label">BASED IN</span><strong id="aboutLocation"></strong></div><div><span class="fact-label">FOCUS</span><strong id="aboutFocus">Software · IoT · Creative Tech</strong></div></div></div></div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">02 / TOOLKIT</p><h2>Skills & interests<span class="accent-dot">.</span></h2><p class="section-desc">Tools and topics I’m learning, practicing, and using to bring ideas to life.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon">⌘</div><h3>Development</h3><div class="skill-tags" id="skillsDev"></div></article>
+          <article class="skill-card"><div class="skill-icon">▧</div><h3>Tools & platforms</h3><div class="skill-tags" id="skillsTools"></div></article>
+          <article class="skill-card"><div class="skill-icon">✳</div><h3>Areas of interest</h3><div class="skill-tags" id="skillsInterest"></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>Projects in progress<span class="accent-dot">.</span></h2><p class="section-desc">A selection of work, experiments, and ideas I’ve been developing.</p></div><span class="project-count" id="projectCount">03 PROJECTS</span></div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <section class="section education-section" id="education">
+      <div class="container education-layout">
+        <div class="section-heading"><p class="eyebrow">04 / BACKGROUND</p><h2>Education<span class="accent-dot">.</span></h2></div>
+        <article class="education-card"><div class="education-icon">✳</div><div><p class="education-date" id="educationDates"></p><h3 id="educationTitle"></h3><p id="schoolName"></p></div><span class="education-arrow">↗</span></article>
+        <div class="extras" id="certificatesWrap" hidden><h3>Training & certificates</h3><ul id="certificatesList"></ul></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-layout"><div><p class="eyebrow">05 / CONTACT</p><h2>Have a project<br>in mind<span class="accent-dot">?</span></h2><p class="contact-copy">I’m always open to learning, collaboration, and new opportunities. Let’s connect.</p></div><div class="contact-card"><span class="contact-card-label">GET IN TOUCH</span><a class="contact-email" id="contactEmail" href="mailto:hello@example.com">hello@example.com ↗</a><div class="contact-links"><a id="githubLink" href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a id="linkedinLink" href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a id="resumeLink" href="#" hidden target="_blank" rel="noreferrer">Résumé ↗</a></div></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">CJ</span><span id="footerBrand">Your Name</span></a><p id="footerNote">Built with curiosity and a commitment to continuous learning.</p><span>© <span id="year"></span></span></div></footer>
+
+  <script>
+    const KEY = "cj-portfolio-content-v1";
+    const defaults = {
+      name:"Your Name", role:"IT Student · Aspiring Developer",
+      intro:"I build practical digital experiences and enjoy turning ideas into useful, well-organized solutions.",
+      about:"I am an Information Technology student interested in software development, IoT, and interactive applications. I enjoy learning new tools, solving technical problems, and collaborating on projects that connect technology with real needs.",
+      location:"Cebu, Philippines", email:"hello@example.com", github:"https://github.com/", linkedin:"https://linkedin.com/",
+      skillsDev:"HTML, CSS, JavaScript, C", skillsTools:"Git, GitHub, Visual Studio Code, Unity", skillsInterest:"IoT, AI and Computer Vision, Networking, Game Development",
+      education:"Bachelor of Science in Information Technology", school:"Your College / University", educationDates:"2023–2027 · Expected graduation",
+      resume:"", certificates:"", footer:"Built with curiosity and a commitment to continuous learning.",
+      projects:[
+        {title:"HydroPenDroid",description:"An AI-driven IoT capstone concept exploring targeted, water-efficient automated cleaning. Add your own verified implementation details, prototype images, and testing results.",tech:"AI, IoT, Computer Vision",status:"Capstone project",url:""},
+        {title:"Dakop-Dakop",description:"A 3D tag-game project focused on character movement, camera controls, animations, and AI-controlled characters.",tech:"Unity, C#",status:"Game development",url:""},
+        {title:"Offline Survey Application",description:"A mobile-friendly survey application concept for collecting and organizing responses when connectivity is limited.",tech:"HTML, CSS, JavaScript",status:"Web application",url:""}
+      ]
+    };
+    function readContent(){try{return {...defaults,...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch{return defaults}}
+    const data = readContent();
+    const $ = id => document.getElementById(id);
+    function safeUrl(value, allowed = ["http:","https:"]) {
+      try { const u = new URL(value); return allowed.includes(u.protocol) ? u.href : ""; } catch { return ""; }
+    }
+    function setText(id,value){$(id).textContent=value||""}
+    function renderTags(id, value) {
+      const host=$(id); host.innerHTML="";
+      (value||"").split(",").map(s=>s.trim()).filter(Boolean).forEach(item=>{const span=document.createElement("span");span.className="skill-tag";span.textContent=item;host.appendChild(span)});
+    }
+    setText("brandName", data.name); $("brandName").insertAdjacentHTML("beforeend", '<span class="brand-sub">PORTFOLIO</span>');
+    setText("heroTitle", "Building useful things with technology.");
+    // Keep the key phrase visually emphasized without inserting user content as HTML.
+    $("heroTitle").replaceChildren(document.createTextNode("Building useful things with "));
+    const accent=document.createElement("span"); accent.textContent="technology."; $("heroTitle").appendChild(accent);
+    setText("heroIntro",data.intro); setText("heroLocation",data.location); setText("heroRole",data.role);
+    setText("aboutPreview",data.intro); setText("aboutLead",data.role); setText("aboutBody",data.about); setText("aboutLocation",data.location);
+    renderTags("skillsDev",data.skillsDev); renderTags("skillsTools",data.skillsTools); renderTags("skillsInterest",data.skillsInterest);
+    setText("educationDates",data.educationDates); setText("educationTitle",data.education); setText("schoolName",data.school);
+    setText("footerBrand",data.name); setText("footerNote",data.footer); setText("year",new Date().getFullYear());
+    const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ? data.email : "";
+    const emailLink=$("contactEmail"); emailLink.textContent=(email||"Add your email in admin") + " ↗"; emailLink.href=email?"mailto:"+email:"#";
+    for (const [id,key,label] of [["githubLink","github","GitHub ↗"],["linkedinLink","linkedin","LinkedIn ↗"]]) {
+      const url=safeUrl(data[key]); $(id).href=url||"#"; $(id).textContent=url?label:label.replace(" ↗"," (not set)");
+    }
+    const resume=safeUrl(data.resume); $("resumeLink").hidden=!resume; if(resume)$("resumeLink").href=resume;
+    const certs=(data.certificates||"").split("\n").map(x=>x.trim()).filter(Boolean);
+    $("certificatesWrap").hidden=!certs.length; $("certificatesList").replaceChildren(...certs.map(item=>{const li=document.createElement("li");li.textContent=item;return li}));
+    const projects=(data.projects||[]).filter(p=>p.title);
+    setText("projectCount",String(projects.length).padStart(2,"0")+" PROJECTS");
+    const grid=$("projectsGrid"); grid.innerHTML="";
+    const symbols=["✳","⌘","▧","↗"];
+    projects.forEach((p,i)=>{
+      const card=document.createElement("article"); card.className="project-card";
+      const visual=document.createElement("div"); visual.className="project-visual visual-"+(i%4);
+      const num=document.createElement("span"); num.className="project-index"; num.textContent=String(i+1).padStart(2,"0");
+      const symbol=document.createElement("span"); symbol.className="project-symbol"; symbol.textContent=symbols[i%symbols.length];
+      const status=document.createElement("span"); status.className="project-status"; status.textContent=p.status||"Project";
+      visual.append(num,symbol,status);
+      const body=document.createElement("div"); body.className="project-body";
+      const h3=document.createElement("h3"); h3.textContent=p.title;
+      const desc=document.createElement("p"); desc.textContent=p.description||"Project description coming soon.";
+      const tech=document.createElement("div"); tech.className="project-tech";
+      (p.tech||"").split(",").map(x=>x.trim()).filter(Boolean).forEach(t=>{const s=document.createElement("span");s.textContent=t;tech.appendChild(s)});
+      body.append(h3,desc,tech);
+      const url=safeUrl(p.url);
+      if(url){const a=document.createElement("a");a.className="project-link";a.href=url;a.target="_blank";a.rel="noreferrer";a.textContent="View project ↗";body.appendChild(a)}
+      card.append(visual,body);grid.appendChild(card);
+    });
+    $("menuToggle").addEventListener("click",()=>{const open=$("navLinks").classList.toggle("is-open");$("menuToggle").setAttribute("aria-expanded",String(open))});
+    $("navLinks").querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{$("navLinks").classList.remove("is-open");$("menuToggle").setAttribute("aria-expanded","false")}));
+  </script>
+</body>
+</html>
