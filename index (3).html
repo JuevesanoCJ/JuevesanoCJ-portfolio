@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name – IT Student Portfolio</title>
+<meta name="description" content="Portfolio of Your Name, an Information Technology student graduating in 2027 and looking for an entry-level IT role.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Your Name – IT Student Portfolio">
+<meta property="og:description" content="Information Technology student graduating in 2027. Projects, skills, and contact details.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B6E6E'/%3E%3Ctext x='16' y='22' font-size='15' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EYN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F3F5F4;
+    --ink: #18242B;
+    --muted: #55646B;
+    --line: #D3DADC;
+    --accent: #0B6E6E;
+    --on-accent: #FFFFFF;
+    --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F1719;
+      --ink: #E6ECEC;
+      --muted: #9AA8AC;
+      --line: #25343A;
+      --accent: #5CC7C0;
+      --on-accent: #0F1719;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .skip {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    background: var(--accent);
+    color: var(--on-accent);
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    z-index: 10;
+  }
+  .skip:focus { top: 1rem; }
+
+  /* Layout: fixed left column, readable content column */
+  .layout {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 5rem;
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  .side {
+    position: sticky;
+    top: 4.5rem;
+    align-self: start;
+  }
+
+  .side h1 {
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .side .role {
+    margin: 0.6rem 0 0;
+    color: var(--muted);
+  }
+
+  .facts {
+    margin: 2rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.9375rem;
+  }
+  .facts div { margin-bottom: 0.9rem; }
+  .facts dt { color: var(--muted); font-size: 0.875rem; }
+  .facts dd { margin: 0; }
+
+  .nav {
+    margin: 1.75rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--line);
+    list-style: none;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .nav a { color: var(--ink); text-decoration: none; }
+  .nav a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* Main content */
+  main { max-width: 40rem; }
+
+  .block {
+    padding-top: 1.75rem;
+    margin-top: 3.5rem;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 2rem;
+  }
+  .block:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .block h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .lead {
+    margin: 0 0 1.25rem;
+    font-size: 1.625rem;
+    line-height: 1.38;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  .block p { margin: 0 0 1rem; }
+  .muted { color: var(--muted); }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-secondary { background: transparent; color: var(--accent); }
+  .btn:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+  /* Definition-style rows used by projects, skills, education, contact */
+  .rows { margin: 0; }
+  .rows > div {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .rows > div:last-child { border-bottom: 1px solid var(--line); }
+  .rows dt { color: var(--muted); }
+  .rows dd { margin: 0; }
+
+  .project { margin-bottom: 2.75rem; }
+  .project:last-child { margin-bottom: 0; }
+  .project h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .project .kind { margin: 0 0 1rem; color: var(--muted); }
+  .project .summary { margin-bottom: 1.25rem; }
+  .project ul { margin: 0; padding-left: 1.1rem; }
+  .project li { margin-bottom: 0.2rem; }
+
+  .copy-status { margin-left: 0.6rem; color: var(--muted); font-size: 0.9375rem; }
+
+  .footer {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+
+  @media (max-width: 52rem) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+    }
+    .side { position: static; }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+    }
+    .lead { font-size: 1.4rem; }
+    .rows > div {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.15rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<div class="layout">
+
+  <!-- ============ LEFT COLUMN ============ -->
+  <header class="side">
+    <!-- EDIT: replace with your full name -->
+    <h1>Your Name</h1>
+    <p class="role">Information Technology student</p>
+
+    <dl class="facts">
+      <div>
+        <dt>Based in</dt>
+        <dd>Philippines</dd>
+      </div>
+      <div>
+        <dt>Graduating</dt>
+        <dd>2027</dd>
+      </div>
+      <div>
+        <dt>Open to</dt>
+        <dd>Onsite or remote work</dd>
+      </div>
+    </dl>
+
+    <nav aria-label="Sections">
+      <ul class="nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#next">Next steps</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main">
+
+    <section class="block" id="about" aria-label="About">
+      <p class="lead">
+        I’m an Information Technology student at Cebu Eastern College, graduating in 2027.
+        I’m looking for an entry-level IT role where I can keep systems and files organized,
+        learn fast, and build toward a career in cybersecurity.
+      </p>
+      <p>
+        I came to IT through a non-traditional path. Before my degree I worked in manual labor,
+        which taught me to be dependable, follow procedures, and finish what I start.
+        I bring that same approach to organizing files, writing documentation, and working through
+        technical problems with a team.
+      </p>
+      <div class="actions">
+        <!-- EDIT: put your resume in the same folder and name it resume.pdf -->
+        <a class="btn btn-primary" href="resume.pdf" download>Download resume</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="block" id="projects">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>HydroPenDroid</h3>
+        <p class="kind">Capstone research project, team of five</p>
+        <p class="summary">
+          An AI-driven, IoT-based automated cleaning system for piggeries. Cleaning a pen by hand
+          takes a lot of water, time, and labor, so this study looks at how automation could
+          make that work lighter and more efficient.
+        </p>
+        <dl class="rows">
+          <div>
+            <dt>My role</dt>
+            <!-- EDIT: describe what you personally did -->
+            <dd>[Your role, for example: researcher, documentation, survey design]</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>Qualitative study using semi-structured surveys of piggery owners and workers, thematic analysis, and the Agile methodology for development.</dd>
+          </div>
+          <div>
+            <dt>Planned outcomes</dt>
+            <dd>
+              <ul>
+                <li>Efficient water consumption</li>
+                <li>Water monitoring</li>
+                <li>Reduced workload</li>
+                <li>Automated smart cleaning</li>
+                <li>Mobile app remote control</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>In progress</dd>
+          </div>
+        </dl>
+      </article>
+
+      <!-- EDIT: copy this block for each additional project, or delete it -->
+      <article class="project">
+        <h3>[Project name]</h3>
+        <p class="kind">[Type, for example: school project, personal project]</p>
+        <p class="summary">[One or two sentences: what problem it solves and what you built.]</p>
+        <dl class="rows">
+          <div>
+            <dt>My role</dt>
+            <dd>[What you did]</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>[Languages, software, or methods used]</dd>
+          </div>
+          <div>
+            <dt>Result</dt>
+            <dd>[What happened. Use numbers if you have them.]</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd><a href="https://github.com/your-username/your-repo">View on GitHub</a></dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="block" id="skills">
+      <h2>Skills</h2>
+      <dl class="rows">
+        <div>
+          <dt>Files and records</dt>
+          <dd>Organizing folders, naming files consistently, and keeping documents easy to find.</dd>
+        </div>
+        <div>
+          <dt>Programming</dt>
+          <dd>Basic programming. [Add the languages you have used, for example: Python, JavaScript, Java.]</dd>
+        </div>
+        <div>
+          <dt>Methods</dt>
+          <dd>Agile with sprint planning, qualitative research, and thematic analysis.</dd>
+        </div>
+        <div>
+          <dt>Documentation</dt>
+          <dd>Research papers, survey instruments, and presentation decks.</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>[Add the tools you use, for example: Microsoft Office, Git, VS Code.]</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="block" id="education">
+      <h2>Education</h2>
+      <dl class="rows">
+        <div>
+          <dt>Degree</dt>
+          <dd>Bachelor of Science in Information Technology</dd>
+        </div>
+        <div>
+          <dt>School</dt>
+          <dd>Cebu Eastern College</dd>
+        </div>
+        <div>
+          <dt>Expected</dt>
+          <dd>2027</dd>
+        </div>
+        <div>
+          <dt>Coursework</dt>
+          <dd>[Add courses that match the roles you want, for example: Networking, Databases, Systems Administration.]</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="block" id="next">
+      <h2>Next steps</h2>
+      <p>
+        My long-term goal is cybersecurity. I haven’t started specialized study yet,
+        so I’m building a solid IT foundation first.
+      </p>
+      <!-- EDIT: update this list as your plans become clearer -->
+      <ul>
+        <li>Networking and operating system fundamentals</li>
+        <li>Working comfortably in the Linux command line</li>
+        <li>Security fundamentals and a beginner-level certification</li>
+      </ul>
+    </section>
+
+    <section class="block" id="contact">
+      <h2>Contact</h2>
+      <p>I’m open to entry-level IT roles, internships, and conversations about starting a career in IT.</p>
+      <dl class="rows">
+        <div>
+          <dt>Email</dt>
+          <dd>
+            <!-- EDIT: use your real email in both places below -->
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+            <button class="btn btn-secondary" type="button" id="copy-email" data-copy="your.email@example.com" style="margin-left:0.6rem;padding:0.2rem 0.65rem;font-size:0.9375rem">Copy</button>
+            <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+          </dd>
+        </div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/your-username">linkedin.com/in/your-username</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/your-username">github.com/your-username</a></dd>
+        </div>
+      </dl>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  © <span id="year">2026</span> Your Name
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var copyBtn = document.getElementById('copy-email');
+  var status = document.getElementById('copy-status');
+  var timer;
+
+  function say(message) {
+    status.textContent = message;
+    clearTimeout(timer);
+    timer = setTimeout(function () { status.textContent = ''; }, 3000);
+  }
+
+  copyBtn.addEventListener('click', function () {
+    var text = copyBtn.getAttribute('data-copy');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { say('Email copied'); },
+        function () { say('Could not copy. Select the address and copy it by hand.'); }
+      );
+    } else {
+      say('Could not copy. Select the address and copy it by hand.');
+    }
+  });
+</script>
+</body>
+</html>
