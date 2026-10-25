@@ -79,10 +79,30 @@
 
     const profileImage = $("profileImage");
     const profileFallback = $("profileFallback");
+    const brandMark = $("brandMark");
+    const footerBrandMark = $("footerBrandMark");
     const profileSrc = safeUrl(data.profileImage, ["http:", "https:"]);
+
+    function applyProfileBadge(element) {
+      if (!element) return;
+      if (profileSrc) {
+        element.style.backgroundImage = `url("${profileSrc}")`;
+        element.style.backgroundSize = "118% auto";
+        element.style.backgroundPosition = "center 22%";
+        element.style.backgroundRepeat = "no-repeat";
+        element.textContent = "";
+        element.setAttribute("aria-label", `${data.name || "Portfolio profile"} avatar`);
+      } else {
+        element.style.backgroundImage = "";
+        element.textContent = (data.name || "CJ").split(" ").map((part) => part[0]).slice(0, 2).join("").toUpperCase() || "CJ";
+        element.removeAttribute("aria-label");
+      }
+    }
+
     if (profileSrc) {
       profileImage.src = profileSrc;
       profileImage.alt = `${data.name || "Portfolio profile"} portrait`;
+      profileImage.style.objectPosition = "center 22%";
       profileImage.hidden = false;
       profileFallback.hidden = true;
     } else {
@@ -91,6 +111,9 @@
       profileFallback.hidden = false;
       profileFallback.textContent = (data.name || "CJ").split(" ").map((part) => part[0]).slice(0, 2).join("").toUpperCase() || "CJ";
     }
+
+    applyProfileBadge(brandMark);
+    applyProfileBadge(footerBrandMark);
 
     setText("brandName", data.name);
     $("brandName").insertAdjacentHTML("beforeend", '<span class="brand-sub">PORTFOLIO</span>');
