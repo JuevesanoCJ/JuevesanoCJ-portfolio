@@ -123,7 +123,6 @@
     accent.textContent = "technology.";
     $("heroTitle").appendChild(accent);
 
-    setText("heroIntro", data.intro);
     setText("heroLocation", data.location);
     setText("heroRole", data.role);
     setText("aboutPreview", data.intro);
