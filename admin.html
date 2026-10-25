@@ -25,6 +25,7 @@
         <div class="panel-heading"><span class="step">01</span><div><h2>Profile</h2><p>Make a clear first impression.</p></div></div>
         <label>Full name<input name="name" required maxlength="80"></label>
         <label>Professional title<input name="role" maxlength="120"></label>
+        <label>Profile image URL<input name="profileImage" type="url" placeholder="https://example.com/profile.jpg"></label>
         <label>Short introduction<textarea name="intro" rows="4" maxlength="500"></textarea></label>
         <label>About me<textarea name="about" rows="5" maxlength="1000"></textarea></label>
         <div class="two-col">
@@ -83,89 +84,7 @@
       </div>
     </article>
   </template>
-  <script>
-    const KEY = "cj-portfolio-content-v1";
-    const defaults = {
-      name: "Cris Jan B. Juevesano",
-      role: "IT Student · Aspiring Developer",
-      intro: "I build practical digital experiences and enjoy turning ideas into useful, well-organized solutions.",
-      about: "I am an Information Technology student interested in software development, IoT, and cybersecurity. I enjoy learning new tools, solving technical problems, and collaborating on projects that connect technology with real needs.",
-      location: "Cebu, Philippines",
-      email: "crisjanjuevesano@gmail.com",
-      github: "https://github.com/",
-      linkedin: "www.linkedin.com/in/cris-jan-juevesano-243a9a340",
-      skillsDev: "HTML, CSS, JavaScript, C",
-      skillsTools: "Git, GitHub, Visual Studio Code, Unity",
-      skillsInterest: "IoT, Cybersecurity, vibe coding, Game Development",
-      education: "Bachelor of Science in Information Technology",
-      school: "Cebu Eastern College",
-      educationDates: "2023–2027 · Expected graduation",
-      resume: "",
-      certificates: "",
-      footer: "Built with curiosity and a commitment to continuous learning.",
-      projects: [
-        { title: "HydroPenDroid", description: "An AI-driven IoT capstone concept exploring targeted, water-efficient automated cleaning. Add your own verified implementation details, prototype images, and testing results.", tech: "AI, IoT, Computer Vision", status: "Capstone project", url: "" },
-        { title: "Dakop-Dakop", description: "A 3D tag-game project focused on character movement, camera controls, animations, and AI-controlled characters.", tech: "Unity, C#", status: "Game development", url: "" },
-        { title: "Offline Survey Application", description: "A mobile-friendly survey application concept for collecting and organizing responses when connectivity is limited.", tech: "HTML, CSS, JavaScript", status: "Web application", url: "" }
-      ]
-    };
-    const form = document.getElementById("portfolioForm");
-    const projectList = document.getElementById("projectsEditor");
-    const template = document.getElementById("projectTemplate");
-    const status = document.getElementById("saveStatus");
-    let current = loadData();
 
-    function loadData() {
-      try { return { ...defaults, ...(JSON.parse(localStorage.getItem(KEY) || "{}")) }; }
-      catch { return structuredClone(defaults); }
-    }
-    function addProject(project = {}) {
-      const node = template.content.firstElementChild.cloneNode(true);
-      node.querySelectorAll("[data-field]").forEach(input => input.value = project[input.dataset.field] || "");
-      node.querySelector(".remove-project").addEventListener("click", () => {
-        node.remove(); renumberProjects(); status.textContent = "Unsaved changes";
-      });
-      projectList.appendChild(node);
-      renumberProjects();
-    }
-    function renumberProjects() {
-      [...projectList.children].forEach((el, i) => el.querySelector(".project-number").textContent = `Project ${String(i+1).padStart(2,"0")}`);
-    }
-    function populate(data) {
-      for (const [key, value] of Object.entries(data)) {
-        if (key === "projects") continue;
-        const field = form.elements.namedItem(key);
-        if (field) field.value = value ?? "";
-      }
-      projectList.innerHTML = "";
-      (data.projects || []).forEach(addProject);
-    }
-    function collect() {
-      const data = {};
-      ["name","role","intro","about","location","email","github","linkedin","skillsDev","skillsTools","skillsInterest","education","school","educationDates","resume","certificates","footer"].forEach(k => data[k] = form.elements.namedItem(k).value.trim());
-      data.projects = [...projectList.children].map(el => {
-        const p = {};
-        el.querySelectorAll("[data-field]").forEach(input => p[input.dataset.field] = input.value.trim());
-        return p;
-      }).filter(p => p.title);
-      return data;
-    }
-    form.addEventListener("input", () => status.textContent = "Unsaved changes");
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      current = collect();
-      localStorage.setItem(KEY, JSON.stringify(current));
-      status.textContent = "Saved in this browser ✓";
-    });
-    document.getElementById("addProject").addEventListener("click", () => addProject({title:"New project"}));
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      if (!confirm("Reset all fields to the sample content? This replaces the saved content in this browser.")) return;
-      current = structuredClone(defaults);
-      localStorage.setItem(KEY, JSON.stringify(current));
-      populate(current);
-      status.textContent = "Sample content restored";
-    });
-    populate(current);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
