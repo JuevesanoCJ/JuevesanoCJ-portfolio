@@ -11,7 +11,7 @@
       location: "Cebu, Philippines",
       email: "crisjanjuevesano@gmail.com",
       github: "https://github.com/JuevesanoCJ",
-      linkedin: "www.linkedin.com/in/cris-jan-juevesano-243a9a340",
+      linkedin: "https://www.linkedin.com/in/cris-jan-juevesano-243a9a340",
       skillsDev: "HTML, CSS, JavaScript, C",
       skillsTools: "Git, GitHub, Visual Studio Code, Unity",
       skillsInterest: "IoT, AI and Computer Vision, Networking, Game Development",
