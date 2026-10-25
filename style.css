@@ -24,7 +24,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-header, .topbar { position: sticky; top: 0; z-index: 20; background: rgba(251,252,248,.9); border-bottom: 1px solid rgba(228,233,226,.8); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .nav, .topbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -.04em; line-height: 1.2; }
-.brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: var(--green); color: white; font-size: 13px; letter-spacing: -.02em; }
+.brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; overflow: hidden; background: var(--green); background-size: 118% auto; background-position: center 22%; background-repeat: no-repeat; color: white; font-size: 13px; letter-spacing: -.02em; border: 1px solid rgba(255,255,255,.5); box-shadow: 0 8px 18px rgba(24,48,36,.10); }
 .brand-sub { display: block; margin-top: 4px; font-family: "DM Sans",sans-serif; font-size: 9px; letter-spacing: .17em; color: var(--muted); font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: 30px; color: var(--ink-soft); font-size: 13px; font-weight: 600; }
 .nav-links a:not(.nav-cta):hover, .text-link:hover { color: var(--green); }
@@ -60,8 +60,8 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; }
 .art-lines i:nth-child(2) { width: 78%; }
 .art-lines i:nth-child(3) { width: 56%; }
 .art-label { display: block; margin-top: 20px; color: var(--muted); font-size: 8px; letter-spacing: .13em; font-weight: 800; }
-.profile-frame { position: absolute; right: 34px; bottom: 28px; width: 170px; height: 170px; border: 7px solid rgba(255,255,255,.9); border-radius: 30px; background: linear-gradient(135deg, #edf4e8, #dfead8); box-shadow: 0 24px 55px rgba(24, 48, 36, .12); overflow: hidden; }
-.profile-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.profile-frame { position: absolute; right: 34px; bottom: 28px; width: 170px; height: 170px; border: 7px solid rgba(255,255,255,.9); border-radius: 50%; background: linear-gradient(135deg, #edf4e8, #dfead8); box-shadow: 0 24px 55px rgba(24, 48, 36, .12); overflow: hidden; }
+.profile-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transform: scale(1.12); transform-origin: center 22%; }
 .profile-fallback { display: grid; place-items: center; width: 100%; height: 100%; background: linear-gradient(135deg, #dfead8, #bfd7ba); color: var(--green-dark); font-family: "Manrope", sans-serif; font-size: 2.3rem; font-weight: 800; letter-spacing: -.08em; }
 .art-float { position: absolute; display: flex; align-items: center; gap: 9px; padding: 12px 15px; border: 1px solid rgba(255,255,255,.8); border-radius: 14px; background: rgba(255,255,255,.9); box-shadow: 0 12px 32px rgba(36,74,51,.08); font-size: 11px; font-weight: 700; }
 .float-top { top: 72px; right: 22px; }
