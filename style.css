@@ -69,10 +69,12 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; }
 .art-spark { position: absolute; color: var(--green); }
 .spark-one { top: 90px; left: 60px; font-size: 22px; }
 .spark-two { right: 66px; bottom: 55px; font-size: 30px; }
-.intro-strip { margin-bottom: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #f3f6ef; }
-.strip-inner { min-height: 92px; display: flex; align-items: center; gap: 26px; }
-.strip-inner p { flex: 1; margin: 0; color: var(--ink-soft); font-size: 13px; }
-.inline-link { flex: 0 0 auto; color: var(--green); font-size: 12px; font-weight: 800; }
+.intro-strip { margin-bottom: 24px; overflow: hidden; border: 1px solid #dfe8dc; border-left: 3px solid var(--green); border-radius: 16px; background: linear-gradient(115deg, #f4f7f0, #fbfcf8); box-shadow: 0 10px 28px rgba(24,48,36,.05); }
+.strip-inner { display: flex; align-items: center; gap: 20px; padding: 16px 18px; }
+.strip-inner p { flex: 1; margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.7; }
+.inline-link { display: inline-flex; flex: 0 0 auto; align-items: center; color: var(--green); font-size: 12px; font-weight: 800; white-space: nowrap; transition: color .2s, transform .2s; }
+.inline-link:hover { color: var(--green-dark); transform: translateX(2px); }
+.inline-link:focus-visible { border-radius: 3px; outline: 2px solid var(--green); outline-offset: 4px; }
 .section { padding-top: 104px; padding-bottom: 104px; }
 #about.section { padding-top: 80px; }
 .section-heading { margin-bottom: 45px; }
@@ -204,7 +206,7 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; }
   .art-card-main { transform: scale(.9) rotate(-5deg); }
   .float-top { top: 35px; right: 10px; }
   .float-bottom { bottom: 32px; left: 10px; }
-  .strip-inner { align-items: flex-start; flex-direction: column; gap: 8px; padding-top: 22px; padding-bottom: 22px; }
+  .strip-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding: 15px 16px; }
   .strip-inner p { font-size: 12px; }
   .section { padding-top: 70px; padding-bottom: 70px; }
   .about-layout { grid-template-columns: 1fr; gap: 22px; }
